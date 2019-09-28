@@ -1,0 +1,14 @@
+[Unit]
+Description=Singing Twice service
+After=multi-user.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/python /opt/twice/main.py --pid /var/run/twice.pid --log /var/log/twice/twice.log
+Restart=always
+PIDFile=/var/run/twice.pid
+WorkingDirectory=/opt/twice/
+ExecStop=/bin/kill $MAINPID
+
+[Install]
+WantedBy=multi-user.target
