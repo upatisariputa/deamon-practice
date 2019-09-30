@@ -1,9 +1,7 @@
 [Unit]
 Description=Singing Twice service
-After=multi-user.target
-Type=idle
-ExecStart=/usr/bin/python /home/ec2-user/deamon/deamon-practice/twice.py
-Restart=on-failure
+After=multi-user.target[Service]
+Type=idledeamon-practice/twice.py
 
 [Service]
 Type=forking
